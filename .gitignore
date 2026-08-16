@@ -1,0 +1,5 @@
+/target/
+/plugins/*.wasm
+/opencode/node_modules/
+*.profraw
+lcov.info

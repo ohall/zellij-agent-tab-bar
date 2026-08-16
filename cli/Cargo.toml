@@ -1,0 +1,23 @@
+[package]
+name = "zja"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Report agent lifecycle state to the agent-aware Zellij tab bar"
+
+[lib]
+name = "zja"
+
+[[bin]]
+name = "zja"
+path = "src/main.rs"
+
+[dependencies]
+clap.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+zellij-agent-shared.workspace = true
+
+[lints.rust]
+unsafe_code = "forbid"

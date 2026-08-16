@@ -1,0 +1,3 @@
+[alias]
+build-plugin = "build --release --target wasm32-wasip1 --package zellij-agent-tab-bar --bin zellij-agent-tab-bar"
+fmt-check = "fmt --all --check"

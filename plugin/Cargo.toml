@@ -1,0 +1,28 @@
+[package]
+name = "zellij-agent-tab-bar"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "An event-driven, agent-aware tab bar for Zellij"
+
+[[bin]]
+name = "zellij-agent-tab-bar"
+path = "src/main.rs"
+test = false
+bench = false
+
+[dependencies]
+serde_json.workspace = true
+unicode-segmentation.workspace = true
+unicode-width.workspace = true
+zellij-agent-shared.workspace = true
+zellij-tile.workspace = true
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+unwrap_used = "deny"
+expect_used = "deny"
+panic = "deny"

@@ -1,0 +1,28 @@
+{
+  "name": "@ohall/zja-status",
+  "version": "0.1.0",
+  "description": "Report opencode session activity to the agent-aware Zellij tab bar via `zja`.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./zja-status.ts",
+  "exports": {
+    ".": "./zja-status.ts"
+  },
+  "files": [
+    "zja-status.ts",
+    "README.md"
+  ],
+  "keywords": [
+    "opencode",
+    "zellij",
+    "zellij-plugin",
+    "agent",
+    "tab-bar"
+  ],
+  "devDependencies": {
+    "@opencode-ai/plugin": "^1.18.10"
+  },
+  "engines": {
+    "bun": ">=1.0"
+  }
+}

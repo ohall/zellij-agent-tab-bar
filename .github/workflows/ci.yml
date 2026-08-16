@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-wasip1
+          components: clippy,rustfmt,llvm-tools-preview
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-nextest,cargo-llvm-cov,cargo-deny,cargo-audit
+      - run: cargo fmt --all --check
+      - run: cargo build --workspace
+      - run: cargo clippy --workspace --all-targets -- -D warnings
+      - run: cargo test --workspace
+      - run: cargo nextest run --workspace
+      - run: cargo llvm-cov --workspace
+      - run: cargo deny check
+      - run: cargo audit
+      - run: cargo build --release --target wasm32-wasip1 --package zellij-agent-tab-bar --bin zellij-agent-tab-bar
+      - run: ./scripts/verify-plugin.sh target/wasm32-wasip1/release/zellij-agent-tab-bar.wasm
