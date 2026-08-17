@@ -257,8 +257,10 @@ The resolver chooses an automatic name using the first usable candidate:
 
 Generated labels show the basename. When basenames collide, the resolver adds
 the shortest parent suffix that makes every visible generated label unique.
-Paths are handled as path data rather than assumed to be UTF-8; lossy display is
-allowed, panics are not.
+Tabs in the same directory cannot be told apart by any parent suffix, so they
+fall back to the basename plus a stable tab index (for example `api #7`) rather
+than echoing the full path. Paths are handled as path data rather than assumed
+to be UTF-8; lossy display is allowed, panics are not.
 
 A name observed as user-assigned is stored separately from the latest generated
 name and always wins. Restoring automatic naming clears the override rather than

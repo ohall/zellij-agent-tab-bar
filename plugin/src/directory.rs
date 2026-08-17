@@ -138,7 +138,7 @@ fn disambiguated_path_label(
         }
     }
 
-    format!("{} · tab-{}", components.join("/"), tab_id)
+    format!("{basename} · tab-{tab_id}")
 }
 
 fn display_components(path: &Path) -> Vec<String> {
@@ -223,8 +223,8 @@ mod tests {
         ];
         let names = automatic_names(&candidates);
 
-        assert_eq!(names.get(&7), Some(&"work/api · tab-7".to_owned()));
-        assert_eq!(names.get(&8), Some(&"work/api · tab-8".to_owned()));
+        assert_eq!(names.get(&7), Some(&"api · tab-7".to_owned()));
+        assert_eq!(names.get(&8), Some(&"api · tab-8".to_owned()));
     }
 
     #[test]

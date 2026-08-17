@@ -260,7 +260,12 @@ fn disambiguate(candidates: &mut [NameCandidate]) {
     for candidate in candidates.iter_mut() {
         if candidate.source.is_directory() && counts.get(&candidate.name).copied().unwrap_or(0) > 1
         {
-            candidate.name = format!("{} #{}", candidate.name, candidate.tab_id);
+            let base = candidate
+                .components
+                .last()
+                .cloned()
+                .unwrap_or_else(|| format!("tab-{}", candidate.tab_id));
+            candidate.name = format!("{base} #{tab_id}", tab_id = candidate.tab_id);
         }
     }
 }

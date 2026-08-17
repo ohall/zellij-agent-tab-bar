@@ -27,5 +27,8 @@ and releases follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - An opencode integration (`opencode/zja-status`) that publishes an agent's
   lifecycle to the tab bar, packaged as `@ohall/zja-status` on npm. See
   `docs/opencode.md`.
+- Directory-name disambiguation no longer walks colliding tabs out to their full
+  path. Tabs sharing the same directory now fall back to the basename plus a
+  stable tab index (for example `api #7`).
 
 No stable release has been published yet.

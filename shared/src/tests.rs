@@ -81,8 +81,8 @@ fn identical_directories_receive_stable_tab_suffixes() {
     create_tab(&mut state, 9, 1, Some("/workspace/api"));
 
     let names = resolve_tab_names(&state);
-    assert_eq!(names[0].name(), "workspace/api #7");
-    assert_eq!(names[1].name(), "workspace/api #9");
+    assert_eq!(names[0].name(), "api #7");
+    assert_eq!(names[1].name(), "api #9");
 }
 
 #[test]

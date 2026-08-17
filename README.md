@@ -156,8 +156,10 @@ Automatic labels use the first available source:
 5. existing tab name; or
 6. `tab-<id>`.
 
-Only the basename is shown until duplicate basenames need parent context. A
-manual Zellij tab rename always wins over an automatic label.
+Only the basename is shown until duplicate basenames need parent context. Tabs
+in the same directory fall back to the basename plus a tab number (for example
+`api #7`) instead of the full path. A manual Zellij tab rename always wins over
+an automatic label.
 
 To restore automatic naming, enter Zellij's Rename Tab mode, delete the entire
 name, and confirm. Zellij's canonical empty-name form (`Tab #N`) is also treated
